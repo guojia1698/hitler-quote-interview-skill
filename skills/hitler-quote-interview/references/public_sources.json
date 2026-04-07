@@ -1,0 +1,42 @@
+[
+  {
+    "source_id": "bundesarchiv-hitler-archivalien",
+    "title": "Archivalien zu Adolf Hitler",
+    "source_type": "archive-guide",
+    "language": "de",
+    "source_url": "https://www.bundesarchiv.de/im-archiv-recherchieren/archivgut-recherchieren/nach-themen/archivalien-zu-adolf-hitler/",
+    "notes": "Bundesarchiv overview of archival materials, including documents, film, image, and speech references."
+  },
+  {
+    "source_id": "ushmm-hitler-overview",
+    "title": "Adolf Hitler | Holocaust Encyclopedia",
+    "source_type": "reference-article",
+    "language": "en",
+    "source_url": "https://encyclopedia.ushmm.org/content/en/article/adolf-hitler",
+    "notes": "US Holocaust Memorial Museum overview article covering early life, rise to power, ideology, and propaganda."
+  },
+  {
+    "source_id": "ushmm-hitler-series",
+    "title": "Series: Adolf Hitler",
+    "source_type": "reference-series",
+    "language": "en",
+    "source_url": "https://encyclopedia.ushmm.org/content/en/series/adolf-hitler?parent=en%2F65",
+    "notes": "Curated USHMM series with contextual articles and key dates."
+  },
+  {
+    "source_id": "ushmm-nazi-state",
+    "title": "Foundations of the Nazi State",
+    "source_type": "reference-article",
+    "language": "en",
+    "source_url": "https://encyclopedia.ushmm.org/narrative/4135/en",
+    "notes": "Background on Gleichschaltung, Volksgemeinschaft, and Hitler-centered authority."
+  },
+  {
+    "source_id": "douban-hitler-tag",
+    "title": "豆瓣“希特勒”电影标签页",
+    "source_type": "media-catalog",
+    "language": "zh",
+    "source_url": "https://m.douban.com/tag/%E5%B8%8C%E7%89%B9%E5%8B%92/movie",
+    "notes": "Useful seed catalog for film and documentary adaptations or portrayals."
+  }
+]

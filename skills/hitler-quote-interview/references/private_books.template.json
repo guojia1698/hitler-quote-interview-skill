@@ -1,0 +1,17 @@
+{
+  "books": [
+    {
+      "book_id": "your-book-id",
+      "work_id": "logical-work-id",
+      "title": "Book Title",
+      "author": "Author Name",
+      "translator_optional": "Translator Name",
+      "language": "en",
+      "format": "epub",
+      "source_path": "/absolute/path/to/book.epub",
+      "tier": "A",
+      "route_family": "biography",
+      "is_translation": false
+    }
+  ]
+}

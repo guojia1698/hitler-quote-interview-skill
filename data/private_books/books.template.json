@@ -1,0 +1,28 @@
+{
+  "books": [
+    {
+      "book_id": "kershaw-hitler-myth-en",
+      "work_id": "kershaw-hitler-myth",
+      "title": "The Hitler Myth: Image and Reality in the Third Reich",
+      "author": "Ian Kershaw",
+      "language": "en",
+      "format": "pdf",
+      "source_path": "/absolute/path/to/The-Hitler-Myth.pdf",
+      "tier": "B",
+      "route_family": "rhetoric",
+      "is_translation": false
+    },
+    {
+      "book_id": "longerich-hitler-biography-en",
+      "work_id": "longerich-hitler-biography",
+      "title": "Hitler: A Biography",
+      "author": "Peter Longerich",
+      "language": "en",
+      "format": "epub",
+      "source_path": "/absolute/path/to/Hitler-A-Biography.epub",
+      "tier": "A",
+      "route_family": "biography",
+      "is_translation": false
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.pytest_cache/
+.coverage
+.venv/
+venv/
+
+# Local private corpus inputs and generated outputs
+local-data/
+data/processed/
+data/private_books/books.local.json
+
+# macOS / editor noise
+.idea/
+.vscode/
