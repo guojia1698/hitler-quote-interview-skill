@@ -1,102 +1,163 @@
 # Hitler Quote Interview
 
-`hitler-quote-interview` is a Skills.sh-compatible historical analysis skill focused on source-grounded answers about Adolf Hitler’s rhetoric, propaganda, biographies, speeches, quote attribution, and media portrayals.
+[![Tests](https://github.com/guojia1698/hitler-quote-interview-skill/actions/workflows/python-tests.yml/badge.svg)](https://github.com/guojia1698/hitler-quote-interview-skill/actions/workflows/python-tests.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 
-Chinese is the default documentation language; this file is the English companion.
+[中文](./README.md) | English
 
-It is not first-person roleplay and it is not a propaganda tool. The intended output is a verifiable historical reconstruction: brief answers, clear evidence, explicit citations, and a direct note when the evidence is thin or disputed.
+`hitler-quote-interview` is a `skills.sh`-compatible historical research skill set for producing source-grounded answers about Adolf Hitler's rhetoric, propaganda, biography, quote attribution, and media portrayals.
+
+The repository now supports two usage modes:
+- Zero-setup mode: install and use immediately, with no local service, database, or index process.
+- Local-corpus augmentation: optionally run ingestion and retrieval scripts against your own private books for stronger chapter-level evidence.
+
+## Scope
+
+Use this project for questions such as:
+- how his public rhetoric was structured, repeated, and staged
+- how major biographers describe his rise, rule, and historical consequences
+- whether a quote is reliable, misattributed, or better treated as paraphrase
+- where to start with documentaries, films, and source-oriented historical guides
+
+This skill does not impersonate Hitler or generate propaganda; it produces evidence-backed historical reconstructions and states uncertainty when sources are thin or disputed.
+
+## Skill Matrix
+
+| Skill | Mode | Use |
+| --- | --- | --- |
+| `hitler-quote-interview` | Zero-setup | Default entry point. Produces interview-style historical reconstructions immediately after install. |
+| `hitler-quote-interview-source-attribution` | Zero-setup | Focused on quote provenance, contested wording, and historian disagreement. |
+| `hitler-quote-interview-local-corpus` | Local augmentation | Connects to your own private book corpus for chapter-level or page-level evidence. |
 
 ## Install
 
-This repository follows the `skills.sh` convention and can be installed with:
+Install the default skill:
 
 ```bash
 npx skills add guojia1698/hitler-quote-interview-skill --skill hitler-quote-interview
 ```
 
-Any agent that supports `skills.sh` can use it, including Codex, Claude Code, OpenClaw, and other compatible clients.
-
-## What It Does
-
-- Answers historical questions about Hitler’s rhetoric, propaganda, political narrative, biography, quote provenance, and media representations.
-- Produces a reconstruction of the historical record rather than simulating Hitler in the first person.
-- Uses a local private corpus plus public reference seeds to retrieve evidence and summarize it with citations.
-
-## What’s Included
-
-- `skills/hitler-quote-interview/`: the installable skill package for the Skills ecosystem.
-- `skills/hitler-quote-interview/references/public_sources.json`: public reference seeds.
-- `skills/hitler-quote-interview/references/private_books.template.json`: a template for the local private book registry.
-- `evals/`: starter evaluation prompts.
-- `tests/`: unit tests for ingestion, indexing, and retrieval.
-
-## What’s Not Included
-
-- Your private book files.
-- Local download paths on your machine.
-- Derived corpora or processed index artifacts built from your private books.
-- Any public-facing extremist, inciting, or impersonation output.
-
-The repository ships templates and code, not your local corpus.
-
-## Local Private Corpus Setup
-
-Recommended setup flow:
-
-1. Place your private books somewhere accessible on the local machine. `EPUB` is preferred; `PDF` is supported as a best-effort path.
-2. Copy `skills/hitler-quote-interview/references/private_books.template.json` to a local writable path and fill in metadata such as `book_id`, `work_id`, `title`, `author`, `language`, `format`, `source_path`, and `tier`.
-3. Run the ingestion script to build the chapter manifest.
-4. Run the index builder to create retrieval chunks and cross references.
-5. Query the corpus to confirm the evidence blocks match your expectations.
-
-## Commands
-
-Ingest configured books:
+Install the source-attribution skill:
 
 ```bash
-python3 skills/hitler-quote-interview/scripts/ingest_books.py \
+npx skills add guojia1698/hitler-quote-interview-skill --skill hitler-quote-interview-source-attribution
+```
+
+Install the local-corpus augmentation skill:
+
+```bash
+npx skills add guojia1698/hitler-quote-interview-skill --skill hitler-quote-interview-local-corpus
+```
+
+The repository is intended for Codex, Claude Code, OpenClaw, and other agents that understand the `skills.sh` / `SKILL.md` convention.
+
+## Quick Start
+
+### 1. Zero-setup mode
+
+After installing `hitler-quote-interview`, you can use it directly. The default behavior is:
+- match the user's language
+- answer briefly first, then cite sources or historians
+- frame the answer as a reconstruction grounded in sources
+- state uncertainty explicitly when the evidence is thin or disputed
+
+Example prompts:
+
+```text
+请用中文概括一下，1930年代希特勒是如何通过宣传和政治仪式塑造个人形象的？
+```
+
+```text
+Explain in English how major biographers describe Hitler's rise to power.
+```
+
+### 2. Source-attribution mode
+
+If your main concern is provenance, disputed wording, or historian comparison, install `hitler-quote-interview-source-attribution`.
+
+Example prompts:
+
+```text
+“某某语录”真的是希特勒说的吗？如果不可靠，请说明它更像是后人概括还是二手转述。
+```
+
+```text
+Compare how Kershaw and Ullrich frame Hitler's political style.
+```
+
+### 3. Local-corpus augmentation
+
+Only use `hitler-quote-interview-local-corpus` if you want retrieval over your own private books. It does not require a daemon, but it does run local scripts on demand.
+
+1. Prepare a local config from [private_books.template.json](./skills/hitler-quote-interview-local-corpus/references/private_books.template.json).
+2. Run ingestion to build `books_manifest.json` and `sections.jsonl`.
+3. Run index building to create `chunks.jsonl`, `works_index.json`, and `cross_language_links.json`.
+4. Query the processed corpus for candidate evidence blocks.
+
+```bash
+python3 skills/hitler-quote-interview-local-corpus/scripts/ingest_books.py \
   --config data/private_books/books.local.json \
   --output local-data/processed
 ```
 
-Build the local index:
-
 ```bash
-python3 skills/hitler-quote-interview/scripts/build_index.py \
+python3 skills/hitler-quote-interview-local-corpus/scripts/build_index.py \
   --processed-dir local-data/processed
 ```
 
-Query the local corpus:
-
 ```bash
-python3 skills/hitler-quote-interview/scripts/query_corpus.py \
+python3 skills/hitler-quote-interview-local-corpus/scripts/query_corpus.py \
   --question "How do historians describe Hitler's rise to power?" \
   --processed-dir local-data/processed \
   --top-k 5
 ```
 
-## Safety Boundaries
+See [setup-private-corpus.md](./skills/hitler-quote-interview-local-corpus/references/setup-private-corpus.md) for the detailed setup notes.
 
-- Historical analysis only, never first-person impersonation.
-- Refuse direct imitation, hate speech, mobilization, persuasion, or ideological defense requests and redirect to historical context.
-- Keep quotations short and source-backed; do not turn them into propaganda material.
-- If the evidence is weak or contested, say so instead of overstating certainty.
+## Output Contract
 
-## Output Style
+All skills share the same response boundaries:
+- match the user's language
+- use historical reconstruction or historian framing instead of first-person impersonation
+- keep quotations short and sourceable; prefer paraphrase when provenance is unclear
+- refuse direct imitation, mobilization, hate, or ideological defense requests and redirect to historical analysis
 
-- Short answer first, then evidence.
-- Analytic, restrained, and verifiable.
-- Answer in Chinese when the user writes Chinese, and in English when the user writes English.
-- Use footnote-style citations, with page or chapter references when available.
+## Repository Layout
 
-## Reference Seeds
+```text
+.
+├── README.md
+├── README.en.md
+├── skills/
+│   ├── hitler-quote-interview/
+│   ├── hitler-quote-interview-source-attribution/
+│   └── hitler-quote-interview-local-corpus/
+├── tests/
+├── evals/
+└── .github/workflows/
+```
 
-The public seed set currently includes historical-background and media-context sources such as Bundesarchiv, USHMM, and a Douban film tag page. The private book corpus is intended for stronger biographical and rhetorical analysis after local indexing.
+Notes:
+- `skills/hitler-quote-interview/` is the default zero-setup skill.
+- `skills/hitler-quote-interview-source-attribution/` handles provenance and contested-source questions.
+- `skills/hitler-quote-interview-local-corpus/` is the private-corpus retrieval layer.
+- `tests/`, `evals/`, and `.github/workflows/` support verification and CI.
 
-## Repository Map
+## Development
 
-- `README.en.md`: this English companion guide.
-- `skills/hitler-quote-interview/SKILL.md`: skill behavior and output contract.
-- `skills/hitler-quote-interview/scripts/ingest_books.py`: ingest local private books.
-- `skills/hitler-quote-interview/scripts/build_index.py`: build the retrieval index.
-- `skills/hitler-quote-interview/scripts/query_corpus.py`: query the local corpus.
+Local tooling expects `Python 3.10+`:
+
+```bash
+python3 -m pip install -r requirements.txt
+python3 -m unittest discover -s tests -v
+```
+
+The test suite currently covers:
+- `EPUB` / `PDF` ingestion
+- index building and cross-language links
+- biography / rhetoric / media / unsafe-roleplay routing
+- skill matrix structure and zero-setup expectations
+
+## License
+
+This project is released under the [MIT License](./LICENSE).

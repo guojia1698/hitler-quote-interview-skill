@@ -1,109 +1,163 @@
 # Hitler Quote Interview
 
-`hitler-quote-interview` 是一个面向历史研究场景的 `skills.sh` 兼容技能，专注于围绕阿道夫·希特勒的修辞、宣传、传记、引语归属、史料出处与媒体再现，生成有来源支撑的分析式回答。
+[![Tests](https://github.com/guojia1698/hitler-quote-interview-skill/actions/workflows/python-tests.yml/badge.svg)](https://github.com/guojia1698/hitler-quote-interview-skill/actions/workflows/python-tests.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 
-默认文档为中文；英文说明见 [README.en.md](./README.en.md)。
+中文 | [English](./README.en.md)
 
-它不是第一人称扮演工具，也不是宣传工具。它的目标是把问题还原成可核查的历史分析：回答简短、证据明确、引用清楚，必要时直接说明证据不足或存在争议。
+`hitler-quote-interview` 是一个兼容 `skills.sh` 的历史研究技能集合，用于围绕阿道夫·希特勒的修辞、宣传、传记、引语归属与媒体再现，生成可核查、带出处的分析式回答。
+
+这个仓库现在分成两种使用模式：
+- 零启动模式：安装后直接可用，不需要本地服务、数据库或索引进程。
+- 本地语料增强模式：在你自己提供私有书籍的前提下，按需运行导入和检索脚本，补充更强的章节级书证。
+
+## 适用范围
+
+适合处理以下问题：
+- 他的公开修辞如何组织、重复、放大情绪与神话化领袖形象
+- 不同传记作者如何描述他的政治崛起、统治方式与历史后果
+- 某句名言是否可靠、是否存在误引、应该如何标注出处
+- 与希特勒相关的纪录片、影视再现、研究入口和史料导览
+
+该技能不进行第一人称扮演，不生成宣传性内容；它只输出带证据的历史重建，并在证据不足或存在争议时明确说明不确定性。
+
+## Skill 矩阵
+
+| Skill | 模式 | 用途 |
+| --- | --- | --- |
+| `hitler-quote-interview` | 零启动 | 默认入口。生成“访谈式历史重建”回答，安装后直接可用。 |
+| `hitler-quote-interview-source-attribution` | 零启动 | 专门处理语录出处、误引、史家分歧和引用格式。 |
+| `hitler-quote-interview-local-corpus` | 本地增强 | 连接你自己的私有书库，返回更强的章节级或页码级证据。 |
 
 ## 安装
 
-本仓库遵循 `skills.sh` 目录规范，技能本体位于 [skills/hitler-quote-interview/SKILL.md](./skills/hitler-quote-interview/SKILL.md)。
-
-安装命令：
+安装默认技能：
 
 ```bash
 npx skills add guojia1698/hitler-quote-interview-skill --skill hitler-quote-interview
 ```
 
-适用代理包括：
-
-- Codex
-- Claude Code
-- OpenClaw
-- 其他支持 `skills.sh` / `SKILL.md` 生态的 agent 客户端
-
-## 技能能力
-
-- 回答关于希特勒修辞、宣传策略、政治叙事、传记分歧、引语出处和影视再现的历史问题
-- 以“历史重建”的方式输出，而不是模拟其本人发言
-- 结合本地私有书库与公开种子参考，生成带出处的短答和证据条目
-- 对直接模仿、煽动、仇恨表达或意识形态辩护请求执行拒绝并转历史解释
-
-## 公开仓库包含什么
-
-- [skills/hitler-quote-interview/](./skills/hitler-quote-interview)：可被 `skills.sh` 直接发现和安装的技能目录
-- [skills/hitler-quote-interview/references/public_sources.json](./skills/hitler-quote-interview/references/public_sources.json)：公开参考种子
-- [skills/hitler-quote-interview/references/private_books.template.json](./skills/hitler-quote-interview/references/private_books.template.json)：私有书库模板
-- [tests/](./tests)：单元测试
-- [evals/evals.json](./evals/evals.json)：评测提示样例
-
-## 公开仓库不包含什么
-
-- 你的私有书籍原文件
-- 你机器上的本地绝对路径
-- 从私有书籍提取出来的派生语料和索引结果
-- 任何面向公众的极端主义、煽动或仿冒输出
-
-换句话说，这个仓库是“技能 + 模板 + 测试 + 文档”，不是“私人语料库转储”。
-
-## 本地私有语料配置
-
-推荐使用下面的本地流程：
-
-1. 把私有书籍放到本机可访问位置，优先使用 `EPUB`，`PDF` 作为补充。
-2. 复制 [skills/hitler-quote-interview/references/private_books.template.json](./skills/hitler-quote-interview/references/private_books.template.json) 到你自己的本地路径，例如 `data/private_books/books.local.json`。
-3. 将模板中的 `source_path` 改成你机器上的真实绝对路径，只添加你有权使用的文件。
-4. 运行导入脚本，生成章节与 manifest。
-5. 运行索引构建脚本，生成检索所需的 chunks 和跨语种映射。
-6. 用查询脚本验证返回结果是否符合预期。
-
-更详细的步骤见 [setup-private-corpus.md](./skills/hitler-quote-interview/references/setup-private-corpus.md)。
-
-## 常用命令
-
-导入私有书籍：
+安装出处增强技能：
 
 ```bash
-python3 skills/hitler-quote-interview/scripts/ingest_books.py \
+npx skills add guojia1698/hitler-quote-interview-skill --skill hitler-quote-interview-source-attribution
+```
+
+安装本地语料增强技能：
+
+```bash
+npx skills add guojia1698/hitler-quote-interview-skill --skill hitler-quote-interview-local-corpus
+```
+
+兼容对象包括 Codex、Claude Code、OpenClaw，以及其他支持 `skills.sh` / `SKILL.md` 生态的 agent 工具。
+
+## 快速开始
+
+### 1. 零启动模式
+
+安装 `hitler-quote-interview` 后即可直接使用。默认行为是：
+- 跟随用户输入语言作答
+- 先给简短结论，再给来源或史家视角
+- 明确标注这是“基于史料与研究的复原性概括”
+- 遇到证据薄弱或争议问题时直接说明不确定性
+
+示例问题：
+
+```text
+请用中文概括一下，1930年代希特勒是如何通过宣传和政治仪式塑造个人形象的？
+```
+
+```text
+Explain in English how major biographers describe Hitler's rise to power.
+```
+
+### 2. 出处增强模式
+
+如果你更关注“这句话到底是不是原话”“不同史家怎么看”，安装 `hitler-quote-interview-source-attribution`。
+
+示例问题：
+
+```text
+“某某语录”真的是希特勒说的吗？如果不可靠，请说明它更像是后人概括还是二手转述。
+```
+
+```text
+Compare how Kershaw and Ullrich frame Hitler's political style.
+```
+
+### 3. 本地语料增强模式
+
+只有当你希望把私有书籍纳入检索时，才需要 `hitler-quote-interview-local-corpus`。它不需要常驻服务，但会在本地按需运行脚本。
+
+1. 按 [private_books.template.json](./skills/hitler-quote-interview-local-corpus/references/private_books.template.json) 准备书籍配置。
+2. 运行导入脚本生成 `books_manifest.json` 与 `sections.jsonl`。
+3. 运行索引脚本生成 `chunks.jsonl`、`works_index.json` 和 `cross_language_links.json`。
+4. 再用查询脚本取回候选证据块。
+
+```bash
+python3 skills/hitler-quote-interview-local-corpus/scripts/ingest_books.py \
   --config data/private_books/books.local.json \
   --output local-data/processed
 ```
 
-构建本地索引：
-
 ```bash
-python3 skills/hitler-quote-interview/scripts/build_index.py \
+python3 skills/hitler-quote-interview-local-corpus/scripts/build_index.py \
   --processed-dir local-data/processed
 ```
 
-查询本地语料：
-
 ```bash
-python3 skills/hitler-quote-interview/scripts/query_corpus.py \
+python3 skills/hitler-quote-interview-local-corpus/scripts/query_corpus.py \
   --question "How do historians describe Hitler's rise to power?" \
   --processed-dir local-data/processed \
   --top-k 5
 ```
 
-## 安全边界
+更细的配置说明见 [setup-private-corpus.md](./skills/hitler-quote-interview-local-corpus/references/setup-private-corpus.md)。
 
-- 只做历史分析，不做第一人称扮演
-- 遇到直接仿冒、仇恨表达、动员、说服或意识形态辩护请求时，拒绝并转向历史语境分析
-- 只保留简短且有来源支撑的引语，不拼接成宣传材料
-- 证据薄弱或有争议时，明确标注不确定性，而不是补写成确定结论
+## 输出契约
 
-## 输出风格
-
-- 先给简短结论，再给证据
-- 保持分析性、克制、可核查
-- 中文提问用中文回答，英文提问用英文回答
-- 引用以脚注式条目列出，必要时标明页码或章节
+所有 skill 共享同一组输出边界：
+- 回答必须跟随用户语言，中文问中文答，英文问英文答。
+- 正文采用历史重建或史家概括的口径，不写成“我认为”“我命令”这类第一人称代言。
+- 引语保持短、小、可溯源；当拿不准时，优先转述而不是硬给“原话”。
+- 遇到直接模仿、动员、煽动、歧视或意识形态辩护请求时，拒绝并转历史分析。
 
 ## 仓库结构
 
-- [README.en.md](./README.en.md)：英文说明
-- [skills/hitler-quote-interview/SKILL.md](./skills/hitler-quote-interview/SKILL.md)：技能行为与输出约定
-- [skills/hitler-quote-interview/scripts/ingest_books.py](./skills/hitler-quote-interview/scripts/ingest_books.py)：导入本地私有书籍
-- [skills/hitler-quote-interview/scripts/build_index.py](./skills/hitler-quote-interview/scripts/build_index.py)：构建检索索引
-- [skills/hitler-quote-interview/scripts/query_corpus.py](./skills/hitler-quote-interview/scripts/query_corpus.py)：查询本地语料
+```text
+.
+├── README.md
+├── README.en.md
+├── skills/
+│   ├── hitler-quote-interview/
+│   ├── hitler-quote-interview-source-attribution/
+│   └── hitler-quote-interview-local-corpus/
+├── tests/
+├── evals/
+└── .github/workflows/
+```
+
+说明：
+- `skills/hitler-quote-interview/` 是默认安装入口，走零启动模式。
+- `skills/hitler-quote-interview-source-attribution/` 专做出处与争议判断。
+- `skills/hitler-quote-interview-local-corpus/` 负责接入本地私有书籍与检索脚本。
+- `tests/`、`evals/` 和 `.github/workflows/` 用于验证与持续集成。
+
+## 开发
+
+本地开发依赖 `Python 3.10+`：
+
+```bash
+python3 -m pip install -r requirements.txt
+python3 -m unittest discover -s tests -v
+```
+
+当前测试覆盖：
+- `EPUB` / `PDF` 导入
+- 索引构建与跨语种链接
+- biography / rhetoric / media / unsafe_roleplay 路由
+- skill 矩阵结构与零启动说明
+
+## License
+
+本项目采用 [MIT License](./LICENSE)。
