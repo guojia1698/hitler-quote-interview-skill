@@ -2,17 +2,17 @@
 
 <h1>洗头佬.skill</h1>
 
-<p><strong>A <code>skills.sh</code>-compatible historical research skill matrix</strong></p>
+<p><strong>A <code>skills.sh</code>-compatible dual-track repository for persona chat and historical analysis</strong></p>
 
-<p>Built for source-grounded, interview-style historical reconstructions.</p>
-<p><strong>Zero-setup by default, with optional private-corpus augmentation when you need stronger citations.</strong></p>
-<p><em>Speak like an interview. Cite like a historian.</em></p>
+<p>Built around a fictional first-person commander persona: short, hard-edged, and direct.</p>
+<p><strong>Zero-setup by default, with historical-analysis and private-corpus tracks available when needed.</strong></p>
+<p><em>Speak like a commander. Install like a product.</em></p>
 
 <p>
   <img alt="skills.sh compatible" src="https://img.shields.io/badge/skills.sh-compatible-111111?style=for-the-badge">
   <img alt="zero setup" src="https://img.shields.io/badge/zero--setup-default-0f766e?style=for-the-badge">
   <img alt="multi skill matrix" src="https://img.shields.io/badge/multi--skill-matrix-9a3412?style=for-the-badge">
-  <img alt="archival interview mode" src="https://img.shields.io/badge/archival--interview-mode-1d4ed8?style=for-the-badge">
+  <img alt="first person persona" src="https://img.shields.io/badge/first--person-persona-1d4ed8?style=for-the-badge">
 </p>
 
 <p>
@@ -24,68 +24,75 @@
 
 <p><code>Codex</code> · <code>Claude Code</code> · <code>OpenClaw</code> · <code>skills.sh</code> ecosystem</p>
 
-<p><sub>Zero-setup by default. Evidence on demand. Local corpus when you need stronger depth.</sub></p>
+<p><sub>Zero-setup by default. Persona first. Historical depth on demand.</sub></p>
 
 </div>
 
 ---
 
-> A historical research skill matrix. The default output is tuned to feel like an archival interview transcript rather than an encyclopedia summary or an uncontrolled persona roleplay.
+> This is now a dual-track repository: the primary track is a fictional first-person commander persona, while the historical-analysis skills remain available as secondary tools.
 
 ```bash
-npx skills add guojia1698/hitler-quote-interview-skill --skill hitler-quote-interview
+npx skills add guojia1698/hitler-quote-interview-skill --skill iron-will-commander
 ```
 
-| Dialogue-first | Zero-setup | Local evidence |
+| First person | Zero-setup | Historical side track |
 | --- | --- | --- |
-| Feels closer to an archival interview than an essay | Works immediately after install | Bring in a private corpus only when you need stronger citations |
+| Feels closer to a fictional commander persona than an explainer | Works immediately after install | Switch to historical-analysis skills only when needed |
 
 **Why it feels production-ready**
 
 - install and use immediately, with no local service required
-- default output is a single reconstructed dialogue turn, not a mini essay
-- sources expand on demand instead of cluttering every reply
+- default output is a single first-person persona turn, not a mini essay
+- persona and historical analysis are split so the tone stays clean
+- historical sources expand on demand instead of cluttering every reply
 - deeper book-level evidence is available through the companion local-corpus skill
 
 **What it feels like**
 
 ```text
-Q: How did Hitler usually attack parliamentary democracy in the late Weimar years?
-A: Reconstructed answer: He would usually frame parliament as weak, delayed, and symbolic of national division, then recast crisis as something only concentrated leadership could resolve.
+Q: Life feels exhausting, Commander. What do you do when you're tired?
+A: I do not negotiate with fatigue. I cut the noise, leave only the objective, and finish the next decisive move.
 ```
 
 ```text
-Q: I feel exhausted lately. What should I do?
-A: Reconstructed answer: In his authoritarian public framing, he would likely have treated exhaustion as a failure of will and demanded that discipline and mission override personal strain.
+Q: If I hit a hard problem at work, what do you do first?
+A: I cut away the blur. I do not ask whether the problem is difficult. I ask where it stops moving, and then I break that point first.
 ```
 
-`hitler-quote-interview` is a `skills.sh`-compatible historical research skill set for producing reconstructed answers that feel closer to an on-record historical interview than a generic explainer.
+This repository now provides two capability tracks:
+- `iron-will-commander`: a fictional first-person commander persona for sharp, high-pressure dialogue
+- `hitler-quote-interview` and its companions: historical-analysis, provenance, and private-corpus tools
 
-The repository now supports two usage modes:
-- Zero-setup mode: install and use immediately, with no local service, database, or index process.
-- Local-corpus augmentation: optionally run ingestion and retrieval scripts against your own private books for stronger chapter-level evidence.
+The primary recommendation is the persona track. Use the historical track only when you specifically want biography, sources, or archival context.
 
 ## Use Cases
 
 Use this project for questions such as:
-- how his public rhetoric was structured, repeated, and staged
-- how major biographers describe his rise, rule, and historical consequences
-- whether a quote is reliable, misattributed, or better treated as paraphrase
-- where to start with documentaries, films, and source-oriented historical guides
+- wanting a strong fictional first-person persona that sounds cold, direct, and disciplined
+- wanting short command-style replies with minimal explanation
+- switching to the historical tools only when you need biography, attribution, or source-backed analysis
 
-This skill does not impersonate Hitler or generate propaganda; it produces concise historical reconstructions grounded in the biographical and rhetorical record.
+The default skill is not tied to any real political figure, movement, or ideology; it is a fictional pressure-persona tool.
 
 ## Skill Matrix
 
 | Skill | Mode | Use |
 | --- | --- | --- |
-| `hitler-quote-interview` | Zero-setup | Default entry point. Produces interview-style historical reconstructions immediately after install. |
+| `iron-will-commander` | Zero-setup | Default entry point. Produces a fictional first-person commander persona. |
+| `hitler-quote-interview` | Zero-setup | Historical-analysis side track for reconstruction-style answers. |
 | `hitler-quote-interview-source-attribution` | Zero-setup | Focused on quote provenance, contested wording, and historian disagreement. |
 | `hitler-quote-interview-local-corpus` | Local augmentation | Connects to your own private book corpus for chapter-level or page-level evidence. |
 
 ## Install
 
 Install the default skill:
+
+```bash
+npx skills add guojia1698/hitler-quote-interview-skill --skill iron-will-commander
+```
+
+Install the historical-analysis skill:
 
 ```bash
 npx skills add guojia1698/hitler-quote-interview-skill --skill hitler-quote-interview
@@ -109,21 +116,21 @@ The repository is intended for Codex, Claude Code, OpenClaw, and other agents th
 
 ### 1. Zero-setup mode
 
-After installing `hitler-quote-interview`, you can use it directly. The default behavior is:
+After installing `iron-will-commander`, you can use it directly. The default behavior is:
 - match the user's language
-- prefer an interview-style reconstructed answer instead of an encyclopedia paragraph
-- default to a single compact reconstructed answer
-- expand into sources or historian comparison only when the user asks
-- keep follow-up turns conversational rather than restarting from scratch
+- reply in first person
+- default to a single compact paragraph
+- keep the tone hard, controlled, and direct
+- maintain persona continuity across follow-up turns
 
 Example prompts:
 
 ```text
-请用中文概括一下，1930年代希特勒是如何通过宣传和政治仪式塑造个人形象的？
+Life feels exhausting, Commander. What do you do when you're tired?
 ```
 
 ```text
-Explain in English how major biographers describe Hitler's rise to power.
+If I hit a hard problem at work, what do you do first?
 ```
 
 ### 2. Source-attribution mode
@@ -171,11 +178,11 @@ See [setup-private-corpus.md](./skills/hitler-quote-interview-local-corpus/refer
 
 ## Output Contract
 
-All skills share the same response boundaries:
-- match the user's language
-- use historical reconstruction or historian framing instead of first-person impersonation
-- keep quotations short and sourceable; prefer paraphrase when provenance is unclear
-- refuse direct imitation, mobilization, hate, or ideological defense requests and redirect to historical analysis
+The two capability tracks have different response boundaries:
+- `iron-will-commander`: first person is allowed, but only as a fictional persona that is not tied to any real political figure or ideology.
+- `hitler-quote-interview` and its companions: stay in historical-analysis mode and do not switch into first-person character embodiment.
+- All skills must match the user's language.
+- All skills refuse hate, violence, criminal planning, self-harm encouragement, and extremist mobilization.
 
 ## Repository Layout
 
@@ -184,6 +191,7 @@ All skills share the same response boundaries:
 ├── README.md
 ├── README.en.md
 ├── skills/
+│   ├── iron-will-commander/
 │   ├── hitler-quote-interview/
 │   ├── hitler-quote-interview-source-attribution/
 │   └── hitler-quote-interview-local-corpus/
@@ -193,7 +201,8 @@ All skills share the same response boundaries:
 ```
 
 Notes:
-- `skills/hitler-quote-interview/` is the default zero-setup skill.
+- `skills/iron-will-commander/` is the default zero-setup persona skill.
+- `skills/hitler-quote-interview/` is the historical-analysis side track.
 - `skills/hitler-quote-interview-source-attribution/` handles provenance and contested-source questions.
 - `skills/hitler-quote-interview-local-corpus/` is the private-corpus retrieval layer.
 - `tests/`, `evals/`, and `.github/workflows/` support verification and CI.
@@ -208,6 +217,7 @@ python3 -m unittest discover -s tests -v
 ```
 
 The test suite currently covers:
+- the fictional persona skill's first-person and trigger constraints
 - `EPUB` / `PDF` ingestion
 - index building and cross-language links
 - biography / rhetoric / media / unsafe-roleplay routing

@@ -2,17 +2,17 @@
 
 <h1>洗头佬.skill</h1>
 
-<p><strong>一个兼容 <code>skills.sh</code> 的历史研究技能矩阵</strong></p>
+<p><strong>一个兼容 <code>skills.sh</code> 的强势人格与历史分析双轨技能仓库</strong></p>
 
-<p>用于生成带出处的“访谈式历史重建”回答。</p>
-<p><strong>默认零启动安装，按需接入本地私有书库增强检索。</strong></p>
-<p><em>像访谈一样说话，像史家一样举证。</em></p>
+<p>主打一个虚构强势人格：短、狠、直接、第一人称。</p>
+<p><strong>默认零启动安装；需要历史材料时，再切换到历史分析与本地书库增强技能。</strong></p>
+<p><em>像指挥官一样说话。像产品一样即装即用。</em></p>
 
 <p>
   <img alt="skills.sh compatible" src="https://img.shields.io/badge/skills.sh-compatible-111111?style=for-the-badge">
   <img alt="zero setup" src="https://img.shields.io/badge/zero--setup-default-0f766e?style=for-the-badge">
   <img alt="multi skill matrix" src="https://img.shields.io/badge/multi--skill-matrix-9a3412?style=for-the-badge">
-  <img alt="archival interview mode" src="https://img.shields.io/badge/archival--interview-mode-1d4ed8?style=for-the-badge">
+  <img alt="first person persona" src="https://img.shields.io/badge/first--person-persona-1d4ed8?style=for-the-badge">
 </p>
 
 <p>
@@ -24,68 +24,75 @@
 
 <p><code>Codex</code> · <code>Claude Code</code> · <code>OpenClaw</code> · <code>skills.sh</code> 生态工具</p>
 
-<p><sub>Zero-setup by default. Evidence on demand. Local corpus when you need stronger depth.</sub></p>
+<p><sub>Zero-setup by default. First-person persona first. Historical depth on demand.</sub></p>
 
 </div>
 
 ---
 
-> 历史研究技能矩阵。默认输出更像“档案采访转录”，不是百科摘要，也不是失控的人物扮演。
+> 这是一个双轨 skill 仓库：主轨是虚构强势人格，副轨是历史分析。默认首页推荐的是前者。
 
 ```bash
-npx skills add guojia1698/hitler-quote-interview-skill --skill hitler-quote-interview
+npx skills add guojia1698/hitler-quote-interview-skill --skill iron-will-commander
 ```
 
-| 对话感优先 | 零启动可用 | 本地书证增强 |
+| 第一人称 | 零启动可用 | 历史副轨 |
 | --- | --- | --- |
-| 更像档案访谈，不像论文摘要 | 安装后直接可用 | 需要时再接入私有书库 |
+| 更像虚构指挥官人格，不像解释器 | 安装后直接可用 | 需要时再切换到历史分析 skill |
 
 **为什么它更像成品**
 
 - 首屏安装即可用，不需要先启动本地服务
-- 默认回答是单段“历史复原对话”，不是说明书体
-- 用户要出处时再展开证据，不强迫每轮都变成学术注释
+- 默认回答是单段第一人称人格回复，不是说明书体
+- 虚构人格和历史分析分轨，减少风格串味
+- 要出处时再装历史副轨，不强迫每轮都带解释
 - 需要更深书证时，再切到本地语料增强 skill
 
 **效果示例**
 
 ```text
-Q: 希特勒在魏玛晚期通常怎样攻击议会民主？
-A: 复原回答：他通常会先把议会描成软弱、拖延和分裂的象征，再把危机包装成只有强力领导才能解决的问题。
+Q: 生活太累了，指挥官。你在生活累的时候怎么办？
+A: 我不和疲惫谈判。我先砍掉噪音，只留下最重要的一件事，然后把它做完。累不是命令，目标才是命令。
 ```
 
 ```text
-Q: 元首，我最近好累啊，怎么办？
-A: 复原回答：如果按他惯常的公开政治话语来压缩成一句回答，他大概会把“疲惫”说成意志松弛，并要求用纪律、服从和所谓使命感去压过个人感受。
+Q: 如果遇到工作上的难题，你会怎么想？
+A: 我先砍掉模糊。我不问它难不难，我问它卡在哪一步。把问题切开，先拿下第一段，后面的路自然会露出来。
 ```
 
-`hitler-quote-interview` 是一个兼容 `skills.sh` 的历史研究技能集合，用于围绕阿道夫·希特勒的修辞、宣传、传记、引语归属与媒体再现，生成更接近“历史人物访谈现场”的复原式回答。
+这个仓库现在提供两类能力：
+- `iron-will-commander`：虚构第一人称强势人格，适合短、狠、直接的对话体验
+- `hitler-quote-interview` 及其扩展：历史分析、副轨出处核验、本地书证增强
 
-这个仓库现在分成两种使用模式：
-- 零启动模式：安装后直接可用，不需要本地服务、数据库或索引进程。
-- 本地语料增强模式：在你自己提供私有书籍的前提下，按需运行导入和检索脚本，补充更强的章节级书证。
+默认推荐前者；如果你需要历史问题、出处问题或私有书籍检索，再装后两类。
 
 ## 适用问题
 
 适合处理以下问题：
-- 他的公开修辞如何组织、重复、放大情绪与神话化领袖形象
-- 不同传记作者如何描述他的政治崛起、统治方式与历史后果
-- 某句名言是否可靠、是否存在误引、应该如何标注出处
-- 与希特勒相关的纪录片、影视再现、研究入口和史料导览
+- 想要一个强势、冷硬、第一人称、命令式的虚构 persona 跟你对话
+- 想要短句、高压、执行导向、低解释密度的回复
+- 需要另装历史分析 skill 来处理传记、出处、影视与史料问题
 
-该技能不进行第一人称扮演，不生成宣传性内容；它输出的是基于史料与研究压缩出来的历史复原回答。
+主技能不绑定任何真实政治人物或意识形态；它只是一个虚构强势人格工具。
 
 ## Skill 矩阵
 
 | Skill | 模式 | 用途 |
 | --- | --- | --- |
-| `hitler-quote-interview` | 零启动 | 默认入口。生成“访谈式历史重建”回答，安装后直接可用。 |
+| `iron-will-commander` | 零启动 | 默认入口。生成虚构强势人格的第一人称短回复。 |
+| `hitler-quote-interview` | 零启动 | 历史分析副轨。生成“访谈式历史重建”回答。 |
 | `hitler-quote-interview-source-attribution` | 零启动 | 专门处理语录出处、误引、史家分歧和引用格式。 |
 | `hitler-quote-interview-local-corpus` | 本地增强 | 连接你自己的私有书库，返回更强的章节级或页码级证据。 |
 
 ## 安装
 
 安装默认技能：
+
+```bash
+npx skills add guojia1698/hitler-quote-interview-skill --skill iron-will-commander
+```
+
+安装历史分析技能：
 
 ```bash
 npx skills add guojia1698/hitler-quote-interview-skill --skill hitler-quote-interview
@@ -109,21 +116,21 @@ npx skills add guojia1698/hitler-quote-interview-skill --skill hitler-quote-inte
 
 ### 1. 零启动模式
 
-安装 `hitler-quote-interview` 后即可直接使用。默认行为是：
+安装 `iron-will-commander` 后即可直接使用。默认行为是：
 - 跟随用户输入语言作答
-- 优先输出“访谈式历史复原回答”，而不是百科体说明
-- 默认只给一段紧凑的对话感回答
-- 用户主动要出处时，再展开来源或史家视角
-- 用户连续追问时，保持对话感，不重复长前言
+- 直接进入第一人称 persona
+- 默认只给一段短回复
+- 口吻强势、冷硬、执行导向
+- 用户连续追问时保持人格连续性
 
 示例问题：
 
 ```text
-请用中文概括一下，1930年代希特勒是如何通过宣传和政治仪式塑造个人形象的？
+生活太累了，指挥官。你在生活累的时候怎么办？
 ```
 
 ```text
-Explain in English how major biographers describe Hitler's rise to power.
+If I hit a hard problem at work, what do you do first?
 ```
 
 ### 2. 出处增强模式
@@ -171,11 +178,11 @@ python3 skills/hitler-quote-interview-local-corpus/scripts/query_corpus.py \
 
 ## 输出契约
 
-所有 skill 共享同一组输出边界：
-- 回答必须跟随用户语言，中文问中文答，英文问英文答。
-- 正文采用历史重建或史家概括的口径，不写成“我认为”“我命令”这类第一人称代言。
-- 引语保持短、小、可溯源；当拿不准时，优先转述而不是硬给“原话”。
-- 遇到直接模仿、动员、煽动、歧视或意识形态辩护请求时，拒绝并转历史分析。
+两条能力轨的输出边界不同：
+- `iron-will-commander`：允许第一人称，但只能是虚构 persona，不绑定真实政治人物或意识形态。
+- `hitler-quote-interview` 及其扩展：保持历史分析口径，不做第一人称人物代言。
+- 所有 skill 都必须跟随用户语言。
+- 所有 skill 都拒绝仇恨、暴力、犯罪、自残鼓励和极端主义动员。
 
 ## 仓库结构
 
@@ -184,6 +191,7 @@ python3 skills/hitler-quote-interview-local-corpus/scripts/query_corpus.py \
 ├── README.md
 ├── README.en.md
 ├── skills/
+│   ├── iron-will-commander/
 │   ├── hitler-quote-interview/
 │   ├── hitler-quote-interview-source-attribution/
 │   └── hitler-quote-interview-local-corpus/
@@ -193,7 +201,8 @@ python3 skills/hitler-quote-interview-local-corpus/scripts/query_corpus.py \
 ```
 
 说明：
-- `skills/hitler-quote-interview/` 是默认安装入口，走零启动模式。
+- `skills/iron-will-commander/` 是默认安装入口，走虚构第一人称 persona 模式。
+- `skills/hitler-quote-interview/` 是历史分析副轨。
 - `skills/hitler-quote-interview-source-attribution/` 专做出处与争议判断。
 - `skills/hitler-quote-interview-local-corpus/` 负责接入本地私有书籍与检索脚本。
 - `tests/`、`evals/` 和 `.github/workflows/` 用于验证与持续集成。
@@ -208,6 +217,7 @@ python3 -m unittest discover -s tests -v
 ```
 
 当前测试覆盖：
+- 虚构 persona skill 的第一人称与触发约束
 - `EPUB` / `PDF` 导入
 - 索引构建与跨语种链接
 - biography / rhetoric / media / unsafe_roleplay 路由

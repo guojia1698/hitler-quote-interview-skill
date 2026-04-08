@@ -6,8 +6,9 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
 class SkillMatrixTests(unittest.TestCase):
-    def test_repo_exposes_three_installable_skills(self) -> None:
+    def test_repo_exposes_four_installable_skills(self) -> None:
         expected = [
+            REPO_ROOT / "skills" / "iron-will-commander" / "SKILL.md",
             REPO_ROOT / "skills" / "hitler-quote-interview" / "SKILL.md",
             REPO_ROOT / "skills" / "hitler-quote-interview-source-attribution" / "SKILL.md",
             REPO_ROOT / "skills" / "hitler-quote-interview-local-corpus" / "SKILL.md",
@@ -27,6 +28,14 @@ class SkillMatrixTests(unittest.TestCase):
         self.assertIn("one short reconstructed paragraph", skill_text)
         self.assertNotIn("Run the query helper first", skill_text)
 
+    def test_commander_skill_is_first_person_persona(self) -> None:
+        skill_text = (REPO_ROOT / "skills" / "iron-will-commander" / "SKILL.md").read_text(encoding="utf-8")
+
+        self.assertIn("Reply in first person", skill_text)
+        self.assertIn("one short paragraph", skill_text)
+        self.assertIn("Do not add labels like", skill_text)
+        self.assertIn("fictional", skill_text.lower())
+
     def test_default_skill_ships_dialogue_references(self) -> None:
         reference_dir = REPO_ROOT / "skills" / "hitler-quote-interview" / "references"
         dialogue_reference = reference_dir / "dialogue-mode.md"
@@ -39,6 +48,15 @@ class SkillMatrixTests(unittest.TestCase):
         self.assertIn("conversation, not a briefing memo", dialogue_text)
         self.assertIn("复原回答：", dialogue_text)
         self.assertIn("optional source line", dialogue_text)
+
+    def test_commander_skill_ships_persona_references(self) -> None:
+        reference_dir = REPO_ROOT / "skills" / "iron-will-commander" / "references"
+
+        self.assertTrue((reference_dir / "persona-style.md").exists())
+        self.assertTrue((reference_dir / "wake-phrases.md").exists())
+        persona_text = (reference_dir / "persona-style.md").read_text(encoding="utf-8")
+        self.assertIn("first person", persona_text.lower())
+        self.assertIn("我不和疲惫谈判", persona_text)
 
     def test_local_corpus_skill_keeps_self_contained_scripts_and_references(self) -> None:
         skill_root = REPO_ROOT / "skills" / "hitler-quote-interview-local-corpus"
