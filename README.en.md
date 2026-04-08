@@ -1,9 +1,25 @@
-# Hitler Quote Interview
+<div align="center">
 
-[![Tests](https://github.com/guojia1698/hitler-quote-interview-skill/actions/workflows/python-tests.yml/badge.svg)](https://github.com/guojia1698/hitler-quote-interview-skill/actions/workflows/python-tests.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
+# 洗头佬.skill
 
-[中文](./README.md) | English
+<p><strong>A <code>skills.sh</code>-compatible historical research skill matrix</strong></p>
+
+<p>Built for source-grounded, interview-style historical reconstructions. Zero-setup by default, with optional private-corpus augmentation when you need stronger citations.</p>
+
+<p>
+  <a href="https://github.com/guojia1698/hitler-quote-interview-skill/actions/workflows/python-tests.yml"><img alt="Tests" src="https://github.com/guojia1698/hitler-quote-interview-skill/actions/workflows/python-tests.yml/badge.svg"></a>
+  <a href="./LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-green.svg"></a>
+</p>
+
+<p><a href="./README.md">中文</a> · <a href="./README.en.md">English</a></p>
+
+<p><code>npx skills add guojia1698/hitler-quote-interview-skill --skill hitler-quote-interview</code></p>
+
+<p><sub>Zero-setup by default. Local corpus when you need stronger citations.</sub></p>
+
+</div>
+
+---
 
 `hitler-quote-interview` is a `skills.sh`-compatible historical research skill set for producing source-grounded answers about Adolf Hitler's rhetoric, propaganda, biography, quote attribution, and media portrayals.
 

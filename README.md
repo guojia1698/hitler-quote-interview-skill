@@ -1,9 +1,25 @@
-# Hitler Quote Interview
+<div align="center">
 
-[![Tests](https://github.com/guojia1698/hitler-quote-interview-skill/actions/workflows/python-tests.yml/badge.svg)](https://github.com/guojia1698/hitler-quote-interview-skill/actions/workflows/python-tests.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
+# 洗头佬.skill
 
-中文 | [English](./README.en.md)
+<p><strong>一个兼容 <code>skills.sh</code> 的历史研究技能矩阵</strong></p>
+
+<p>用于生成带出处的“访谈式历史重建”回答。默认零启动安装，按需接入本地私有书库增强检索。</p>
+
+<p>
+  <a href="https://github.com/guojia1698/hitler-quote-interview-skill/actions/workflows/python-tests.yml"><img alt="Tests" src="https://github.com/guojia1698/hitler-quote-interview-skill/actions/workflows/python-tests.yml/badge.svg"></a>
+  <a href="./LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-green.svg"></a>
+</p>
+
+<p><a href="./README.md">中文</a> · <a href="./README.en.md">English</a></p>
+
+<p><code>npx skills add guojia1698/hitler-quote-interview-skill --skill hitler-quote-interview</code></p>
+
+<p><sub>Zero-setup by default. Local corpus when you need stronger citations.</sub></p>
+
+</div>
+
+---
 
 `hitler-quote-interview` 是一个兼容 `skills.sh` 的历史研究技能集合，用于围绕阿道夫·希特勒的修辞、宣传、传记、引语归属与媒体再现，生成可核查、带出处的分析式回答。
 
