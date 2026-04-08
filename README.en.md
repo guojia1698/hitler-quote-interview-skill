@@ -48,6 +48,11 @@ A: Reconstructed answer: He would usually frame parliament as weak, delayed, and
    Sources: [1] Ian Kershaw, Hitler 1889-1936: Hubris
 ```
 
+```text
+Q: I feel exhausted lately. What should I do?
+A: Reconstructed answer: In his authoritarian public framing, he would likely have treated exhaustion as a failure of will and demanded that discipline and mission override personal strain.
+```
+
 `hitler-quote-interview` is a `skills.sh`-compatible historical research skill set for producing source-grounded answers about Adolf Hitler's rhetoric, propaganda, biography, quote attribution, and media portrayals.
 
 The repository now supports two usage modes:

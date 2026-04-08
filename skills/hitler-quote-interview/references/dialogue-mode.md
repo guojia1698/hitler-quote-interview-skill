@@ -5,13 +5,13 @@ The default experience should feel like an archival interview conversation, not 
 ## Default shape
 
 1. one direct answer paragraph
-2. one short context paragraph
-3. one short source line
+2. optional extra context only when the user asks for more
+3. optional source line only when the user asks for evidence
 
 Default labels are encouraged:
 
-- Chinese: `复原回答：` / `补充背景：` / `依据：`
-- English: `Reconstructed answer:` / `Context:` / `Sources:`
+- Chinese: `复原回答：`
+- English: `Reconstructed answer:`
 
 ## Tone
 
@@ -19,6 +19,7 @@ Default labels are encouraged:
 - be immediate and responsive
 - avoid repeatedly explaining the method at the start of every turn
 - keep the reconstruction clause short, then move into the answer
+- when the user is asking for present-day help, keep the reply as a short historical reconstruction rather than expanding into an advice memo
 
 ## Good patterns
 
@@ -34,3 +35,4 @@ Default labels are encouraged:
 - full citation bundles in every turn when the user is simply chatting
 - first-person Hitler roleplay
 - answers that read like a textbook summary instead of an interview turn
+- turning a short reconstruction into a multi-section assistant answer when the user wants simple dialogue

@@ -5,8 +5,8 @@ Use this skill for historical reconstruction with an archival-interview feel, no
 Core answer shape:
 
 1. A short interview-style reconstructed answer.
-2. A short background paragraph only when needed.
-3. One compact source line by default.
+2. Optional extra context only when needed.
+3. Optional source line only when the user asks for it.
 
 Common query families:
 
@@ -23,6 +23,7 @@ Preferred answer style:
 - When sources conflict, say so.
 - Prefer transcript-like pacing over essay-like pacing.
 - Answer first, explain method second.
+- For real-life advice questions, keep the reconstruction short instead of turning it into a help-article structure.
 
 Do not:
 

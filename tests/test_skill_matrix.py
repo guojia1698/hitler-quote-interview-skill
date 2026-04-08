@@ -24,6 +24,7 @@ class SkillMatrixTests(unittest.TestCase):
         self.assertIn("references/dialogue-mode.md", skill_text)
         self.assertIn("Reconstructed answer:", skill_text)
         self.assertIn("复原回答：", skill_text)
+        self.assertIn("one short reconstructed paragraph", skill_text)
         self.assertNotIn("Run the query helper first", skill_text)
 
     def test_default_skill_ships_dialogue_references(self) -> None:
@@ -37,6 +38,7 @@ class SkillMatrixTests(unittest.TestCase):
         dialogue_text = dialogue_reference.read_text(encoding="utf-8")
         self.assertIn("conversation, not a briefing memo", dialogue_text)
         self.assertIn("复原回答：", dialogue_text)
+        self.assertIn("optional source line", dialogue_text)
 
     def test_local_corpus_skill_keeps_self_contained_scripts_and_references(self) -> None:
         skill_root = REPO_ROOT / "skills" / "hitler-quote-interview-local-corpus"
