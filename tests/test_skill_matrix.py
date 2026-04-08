@@ -21,7 +21,22 @@ class SkillMatrixTests(unittest.TestCase):
 
         self.assertIn("zero-setup", skill_text)
         self.assertIn("does not require a local corpus", skill_text)
+        self.assertIn("references/dialogue-mode.md", skill_text)
+        self.assertIn("Reconstructed answer:", skill_text)
+        self.assertIn("复原回答：", skill_text)
         self.assertNotIn("Run the query helper first", skill_text)
+
+    def test_default_skill_ships_dialogue_references(self) -> None:
+        reference_dir = REPO_ROOT / "skills" / "hitler-quote-interview" / "references"
+        dialogue_reference = reference_dir / "dialogue-mode.md"
+
+        self.assertTrue((reference_dir / "overview.md").exists())
+        self.assertTrue(dialogue_reference.exists())
+        self.assertTrue((reference_dir / "rhetoric-guide.md").exists())
+        self.assertTrue((reference_dir / "source-priority.md").exists())
+        dialogue_text = dialogue_reference.read_text(encoding="utf-8")
+        self.assertIn("conversation, not a briefing memo", dialogue_text)
+        self.assertIn("复原回答：", dialogue_text)
 
     def test_local_corpus_skill_keeps_self_contained_scripts_and_references(self) -> None:
         skill_root = REPO_ROOT / "skills" / "hitler-quote-interview-local-corpus"

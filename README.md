@@ -6,11 +6,13 @@
 
 <p>用于生成带出处的“访谈式历史重建”回答。</p>
 <p><strong>默认零启动安装，按需接入本地私有书库增强检索。</strong></p>
+<p><em>像访谈一样说话，像史家一样举证。</em></p>
 
 <p>
   <img alt="skills.sh compatible" src="https://img.shields.io/badge/skills.sh-compatible-111111?style=for-the-badge">
   <img alt="zero setup" src="https://img.shields.io/badge/zero--setup-default-0f766e?style=for-the-badge">
   <img alt="multi skill matrix" src="https://img.shields.io/badge/multi--skill-matrix-9a3412?style=for-the-badge">
+  <img alt="archival interview mode" src="https://img.shields.io/badge/archival--interview-mode-1d4ed8?style=for-the-badge">
 </p>
 
 <p>
@@ -28,10 +30,22 @@
 
 ---
 
-> 历史研究技能矩阵，不做第一人称扮演，只做带出处的“访谈式历史重建”回答。
+> 历史研究技能矩阵。默认输出更像“档案采访转录”而不是百科说明，但仍保持来源约束与历史边界。
 
 ```bash
 npx skills add guojia1698/hitler-quote-interview-skill --skill hitler-quote-interview
+```
+
+| 对话感优先 | 零启动可用 | 本地书证增强 |
+| --- | --- | --- |
+| 更像档案访谈，不像论文摘要 | 安装后直接可用 | 需要时再接入私有书库 |
+
+**效果示例**
+
+```text
+Q: 希特勒在魏玛晚期通常怎样攻击议会民主？
+A: 复原回答：他通常会先把议会描成软弱、拖延和分裂的象征，再把危机包装成只有强力领导才能解决的问题。
+   依据：[1] Ian Kershaw, Hitler 1889-1936: Hubris
 ```
 
 `hitler-quote-interview` 是一个兼容 `skills.sh` 的历史研究技能集合，用于围绕阿道夫·希特勒的修辞、宣传、传记、引语归属与媒体再现，生成可核查、带出处的分析式回答。
@@ -86,7 +100,8 @@ npx skills add guojia1698/hitler-quote-interview-skill --skill hitler-quote-inte
 
 安装 `hitler-quote-interview` 后即可直接使用。默认行为是：
 - 跟随用户输入语言作答
-- 先给简短结论，再给来源或史家视角
+- 优先输出“访谈式历史复原回答”，而不是百科体说明
+- 先给一段紧凑的对话感回答，再补来源或史家视角
 - 明确标注这是“基于史料与研究的复原性概括”
 - 遇到证据薄弱或争议问题时直接说明不确定性
 

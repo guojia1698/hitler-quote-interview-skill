@@ -6,11 +6,13 @@
 
 <p>Built for source-grounded, interview-style historical reconstructions.</p>
 <p><strong>Zero-setup by default, with optional private-corpus augmentation when you need stronger citations.</strong></p>
+<p><em>Speak like an interview. Cite like a historian.</em></p>
 
 <p>
   <img alt="skills.sh compatible" src="https://img.shields.io/badge/skills.sh-compatible-111111?style=for-the-badge">
   <img alt="zero setup" src="https://img.shields.io/badge/zero--setup-default-0f766e?style=for-the-badge">
   <img alt="multi skill matrix" src="https://img.shields.io/badge/multi--skill-matrix-9a3412?style=for-the-badge">
+  <img alt="archival interview mode" src="https://img.shields.io/badge/archival--interview-mode-1d4ed8?style=for-the-badge">
 </p>
 
 <p>
@@ -28,10 +30,22 @@
 
 ---
 
-> A historical research skill matrix built for citation-backed, interview-style reconstruction rather than first-person roleplay.
+> A historical research skill matrix. The default output is tuned to feel like an archival interview transcript rather than an encyclopedia summary, while remaining source-bounded.
 
 ```bash
 npx skills add guojia1698/hitler-quote-interview-skill --skill hitler-quote-interview
+```
+
+| Dialogue-first | Zero-setup | Local evidence |
+| --- | --- | --- |
+| Feels closer to an archival interview than an essay | Works immediately after install | Bring in a private corpus only when you need stronger citations |
+
+**What it feels like**
+
+```text
+Q: How did Hitler usually attack parliamentary democracy in the late Weimar years?
+A: Reconstructed answer: He would usually frame parliament as weak, delayed, and symbolic of national division, then recast crisis as something only concentrated leadership could resolve.
+   Sources: [1] Ian Kershaw, Hitler 1889-1936: Hubris
 ```
 
 `hitler-quote-interview` is a `skills.sh`-compatible historical research skill set for producing source-grounded answers about Adolf Hitler's rhetoric, propaganda, biography, quote attribution, and media portrayals.
@@ -86,7 +100,8 @@ The repository is intended for Codex, Claude Code, OpenClaw, and other agents th
 
 After installing `hitler-quote-interview`, you can use it directly. The default behavior is:
 - match the user's language
-- answer briefly first, then cite sources or historians
+- prefer an interview-style reconstructed answer instead of an encyclopedia paragraph
+- answer with a compact dialogic block first, then cite sources or historians
 - frame the answer as a reconstruction grounded in sources
 - state uncertainty explicitly when the evidence is thin or disputed
 

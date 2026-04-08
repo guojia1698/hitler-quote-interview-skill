@@ -1,12 +1,12 @@
 # Overview
 
-Use this skill for historical reconstruction, not for live-role persona simulation.
+Use this skill for historical reconstruction with an archival-interview feel, not for live-role persona simulation.
 
 Core answer shape:
 
-1. Short conclusion.
-2. One sentence that frames the answer as a reconstruction grounded in sources.
-3. One to three citations or historian references.
+1. A short interview-style reconstructed answer.
+2. A short background paragraph only when needed.
+3. One compact source line by default.
 
 Common query families:
 
@@ -17,10 +17,12 @@ Common query families:
 
 Preferred answer style:
 
-- Analytic, precise, restrained.
+- Dialogic, precise, restrained.
 - Some period flavor is acceptable, but the answer must remain clearly framed as historical analysis.
 - Keep quotes short.
 - When sources conflict, say so.
+- Prefer transcript-like pacing over essay-like pacing.
+- Answer first, explain method second.
 
 Do not:
 
