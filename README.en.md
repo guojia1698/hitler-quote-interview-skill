@@ -1,10 +1,17 @@
 <div align="center">
 
-# 洗头佬.skill
+<h1>洗头佬.skill</h1>
 
 <p><strong>A <code>skills.sh</code>-compatible historical research skill matrix</strong></p>
 
-<p>Built for source-grounded, interview-style historical reconstructions. Zero-setup by default, with optional private-corpus augmentation when you need stronger citations.</p>
+<p>Built for source-grounded, interview-style historical reconstructions.</p>
+<p><strong>Zero-setup by default, with optional private-corpus augmentation when you need stronger citations.</strong></p>
+
+<p>
+  <img alt="skills.sh compatible" src="https://img.shields.io/badge/skills.sh-compatible-111111?style=for-the-badge">
+  <img alt="zero setup" src="https://img.shields.io/badge/zero--setup-default-0f766e?style=for-the-badge">
+  <img alt="multi skill matrix" src="https://img.shields.io/badge/multi--skill-matrix-9a3412?style=for-the-badge">
+</p>
 
 <p>
   <a href="https://github.com/guojia1698/hitler-quote-interview-skill/actions/workflows/python-tests.yml"><img alt="Tests" src="https://github.com/guojia1698/hitler-quote-interview-skill/actions/workflows/python-tests.yml/badge.svg"></a>
@@ -13,13 +20,19 @@
 
 <p><a href="./README.md">中文</a> · <a href="./README.en.md">English</a></p>
 
-<p><code>npx skills add guojia1698/hitler-quote-interview-skill --skill hitler-quote-interview</code></p>
+<p><code>Codex</code> · <code>Claude Code</code> · <code>OpenClaw</code> · <code>skills.sh</code> ecosystem</p>
 
 <p><sub>Zero-setup by default. Local corpus when you need stronger citations.</sub></p>
 
 </div>
 
 ---
+
+> A historical research skill matrix built for citation-backed, interview-style reconstruction rather than first-person roleplay.
+
+```bash
+npx skills add guojia1698/hitler-quote-interview-skill --skill hitler-quote-interview
+```
 
 `hitler-quote-interview` is a `skills.sh`-compatible historical research skill set for producing source-grounded answers about Adolf Hitler's rhetoric, propaganda, biography, quote attribution, and media portrayals.
 

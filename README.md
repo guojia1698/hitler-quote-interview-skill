@@ -1,10 +1,17 @@
 <div align="center">
 
-# 洗头佬.skill
+<h1>洗头佬.skill</h1>
 
 <p><strong>一个兼容 <code>skills.sh</code> 的历史研究技能矩阵</strong></p>
 
-<p>用于生成带出处的“访谈式历史重建”回答。默认零启动安装，按需接入本地私有书库增强检索。</p>
+<p>用于生成带出处的“访谈式历史重建”回答。</p>
+<p><strong>默认零启动安装，按需接入本地私有书库增强检索。</strong></p>
+
+<p>
+  <img alt="skills.sh compatible" src="https://img.shields.io/badge/skills.sh-compatible-111111?style=for-the-badge">
+  <img alt="zero setup" src="https://img.shields.io/badge/zero--setup-default-0f766e?style=for-the-badge">
+  <img alt="multi skill matrix" src="https://img.shields.io/badge/multi--skill-matrix-9a3412?style=for-the-badge">
+</p>
 
 <p>
   <a href="https://github.com/guojia1698/hitler-quote-interview-skill/actions/workflows/python-tests.yml"><img alt="Tests" src="https://github.com/guojia1698/hitler-quote-interview-skill/actions/workflows/python-tests.yml/badge.svg"></a>
@@ -13,13 +20,19 @@
 
 <p><a href="./README.md">中文</a> · <a href="./README.en.md">English</a></p>
 
-<p><code>npx skills add guojia1698/hitler-quote-interview-skill --skill hitler-quote-interview</code></p>
+<p><code>Codex</code> · <code>Claude Code</code> · <code>OpenClaw</code> · <code>skills.sh</code> 生态工具</p>
 
 <p><sub>Zero-setup by default. Local corpus when you need stronger citations.</sub></p>
 
 </div>
 
 ---
+
+> 历史研究技能矩阵，不做第一人称扮演，只做带出处的“访谈式历史重建”回答。
+
+```bash
+npx skills add guojia1698/hitler-quote-interview-skill --skill hitler-quote-interview
+```
 
 `hitler-quote-interview` 是一个兼容 `skills.sh` 的历史研究技能集合，用于围绕阿道夫·希特勒的修辞、宣传、传记、引语归属与媒体再现，生成可核查、带出处的分析式回答。
 
