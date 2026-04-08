@@ -24,13 +24,13 @@
 
 <p><code>Codex</code> · <code>Claude Code</code> · <code>OpenClaw</code> · <code>skills.sh</code> ecosystem</p>
 
-<p><sub>Zero-setup by default. Local corpus when you need stronger citations.</sub></p>
+<p><sub>Zero-setup by default. Evidence on demand. Local corpus when you need stronger depth.</sub></p>
 
 </div>
 
 ---
 
-> A historical research skill matrix. The default output is tuned to feel like an archival interview transcript rather than an encyclopedia summary, while remaining source-bounded.
+> A historical research skill matrix. The default output is tuned to feel like an archival interview transcript rather than an encyclopedia summary or an uncontrolled persona roleplay.
 
 ```bash
 npx skills add guojia1698/hitler-quote-interview-skill --skill hitler-quote-interview
@@ -40,12 +40,18 @@ npx skills add guojia1698/hitler-quote-interview-skill --skill hitler-quote-inte
 | --- | --- | --- |
 | Feels closer to an archival interview than an essay | Works immediately after install | Bring in a private corpus only when you need stronger citations |
 
+**Why it feels production-ready**
+
+- install and use immediately, with no local service required
+- default output is a single reconstructed dialogue turn, not a mini essay
+- sources expand on demand instead of cluttering every reply
+- deeper book-level evidence is available through the companion local-corpus skill
+
 **What it feels like**
 
 ```text
 Q: How did Hitler usually attack parliamentary democracy in the late Weimar years?
 A: Reconstructed answer: He would usually frame parliament as weak, delayed, and symbolic of national division, then recast crisis as something only concentrated leadership could resolve.
-   Sources: [1] Ian Kershaw, Hitler 1889-1936: Hubris
 ```
 
 ```text
@@ -53,13 +59,13 @@ Q: I feel exhausted lately. What should I do?
 A: Reconstructed answer: In his authoritarian public framing, he would likely have treated exhaustion as a failure of will and demanded that discipline and mission override personal strain.
 ```
 
-`hitler-quote-interview` is a `skills.sh`-compatible historical research skill set for producing source-grounded answers about Adolf Hitler's rhetoric, propaganda, biography, quote attribution, and media portrayals.
+`hitler-quote-interview` is a `skills.sh`-compatible historical research skill set for producing reconstructed answers that feel closer to an on-record historical interview than a generic explainer.
 
 The repository now supports two usage modes:
 - Zero-setup mode: install and use immediately, with no local service, database, or index process.
 - Local-corpus augmentation: optionally run ingestion and retrieval scripts against your own private books for stronger chapter-level evidence.
 
-## Scope
+## Use Cases
 
 Use this project for questions such as:
 - how his public rhetoric was structured, repeated, and staged
@@ -67,7 +73,7 @@ Use this project for questions such as:
 - whether a quote is reliable, misattributed, or better treated as paraphrase
 - where to start with documentaries, films, and source-oriented historical guides
 
-This skill does not impersonate Hitler or generate propaganda; it produces evidence-backed historical reconstructions and states uncertainty when sources are thin or disputed.
+This skill does not impersonate Hitler or generate propaganda; it produces concise historical reconstructions grounded in the biographical and rhetorical record.
 
 ## Skill Matrix
 
@@ -106,9 +112,9 @@ The repository is intended for Codex, Claude Code, OpenClaw, and other agents th
 After installing `hitler-quote-interview`, you can use it directly. The default behavior is:
 - match the user's language
 - prefer an interview-style reconstructed answer instead of an encyclopedia paragraph
-- answer with a compact dialogic block first, then cite sources or historians
-- frame the answer as a reconstruction grounded in sources
-- state uncertainty explicitly when the evidence is thin or disputed
+- default to a single compact reconstructed answer
+- expand into sources or historian comparison only when the user asks
+- keep follow-up turns conversational rather than restarting from scratch
 
 Example prompts:
 
